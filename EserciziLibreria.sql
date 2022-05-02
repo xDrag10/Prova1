@@ -14,4 +14,8 @@ from romanzo r, autore a
 where r.Autore = a.ID and (a.DataNascita > 1899 and a.DataNascita < 2000)
 order by a.Cognome, r.AnnoPubblicazione
 
+/*Titolo"e"anno"di"pubblicazione"di"romanzi"di"autori"viventi*/
 
+select r.Titolo, r.AnnoPubblicazione
+from romanzo r, autore a
+where r.Autore = a.ID and (a.DataMorte is null)
