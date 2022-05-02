@@ -43,3 +43,9 @@ where r.Titolo like 'Tokyo%'
 select r.*
 from romanzo r
 where r.Titolo like '%Sposi%'
+
+/*Romanzi"con"penultima"lettera"“i”"nel"titolo*/
+
+select r.*
+from romanzo r
+where r.Titolo like '%i_'
