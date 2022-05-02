@@ -38,3 +38,8 @@ select r.*
 from romanzo r
 where r.Titolo like 'Tokyo%'
 
+/*Romanzi"con"la"parola"“Sposi”"nel"titolo*/
+
+select r.*
+from romanzo r
+where r.Titolo like '%Sposi%'
