@@ -68,3 +68,9 @@ maiuscola"o"minuscola*/
 select r.*
 from romanzo r
 where r.Titolo like '%Sposi%' and r.AnnoPubblicazione < 1900
+
+/*Romanzi"di"Alessandro"Manzoni*/
+
+select r.*
+from romanzo r, autore a
+where r.Autore = a.ID and (a.Nome = 'Alessandro' and a.Cognome = 'Manzoni')
