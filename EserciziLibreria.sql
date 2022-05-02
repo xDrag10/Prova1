@@ -49,3 +49,9 @@ where r.Titolo like '%Sposi%'
 select r.*
 from romanzo r
 where r.Titolo like '%i_'
+
+/*Romanzi"il"cui"titolo"termina"per"“blues”*/
+
+select r.*
+from romanzo r
+where r.Titolo like '%blues'
