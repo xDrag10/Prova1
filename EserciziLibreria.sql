@@ -32,3 +32,9 @@ select r.Titolo, r.AnnoPubblicazione
 from romanzo r, autore a
 where r.Autore = a.ID and (a.LuogoNascita = 'Roma')
 
+/*Romanzi"con"titolo"che"inizia"per"“Tokyo”*/
+
+select r.*
+from romanzo r
+where r.Titolo like 'Tokyo%'
+
