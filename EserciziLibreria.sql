@@ -55,3 +55,9 @@ where r.Titolo like '%i_'
 select r.*
 from romanzo r
 where r.Titolo like '%blues'
+
+/*Romanzi"pubblicati"del"ventesimo"secolo"e"con"la"parola"“Zeno”"nel"titolo*/
+
+select r.*
+from romanzo r
+where r.Titolo like '%zeno%' and r.AnnoPubblicazione > 1899 and r.AnnoPubblicazione < 2000
