@@ -61,3 +61,10 @@ where r.Titolo like '%blues'
 select r.*
 from romanzo r
 where r.Titolo like '%zeno%' and r.AnnoPubblicazione > 1899 and r.AnnoPubblicazione < 2000
+
+/*Romanzi"pubblicati"prima"del"1900"e"con"la"parola"“Sposi”"nel"titolo,"scritta"l’iniziale"
+maiuscola"o"minuscola*/
+
+select r.*
+from romanzo r
+where r.Titolo like '%Sposi%' and r.AnnoPubblicazione < 1900
