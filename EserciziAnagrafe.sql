@@ -15,3 +15,8 @@ where pf.CittàNascita = pg.CittàNascita
 select p.CittàNascita
 from genia g join persona p on g.Genitore = p.Nome
 where p.Età > 50
+
+/*vogliamo sapere chi sono i nonni*/
+
+select f.Genitore
+from genia f join genia g on f.Figlio = g.Genitore
