@@ -80,3 +80,9 @@ where r.Autore = a.ID and (a.Nome = 'Alessandro' and a.Cognome = 'Manzoni')
 select r.Titolo
 from romanzo r, autore a
 where r.Autore = a.ID and (a.Nome = 'Luigi' and a.Cognome = 'Pirandello')
+
+/*Romanzi con il personaggio di Christopher John Francis Boone*/
+
+select r.*
+from romanzo r, personaggio p, personaggioromanzo pr
+where p.Nome = 'Christopher' and p.Cognome = 'John Francis Boone' and (pr.Personaggio = p.ID and pr.Romanzo = r.ID)
