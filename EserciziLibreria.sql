@@ -25,3 +25,10 @@ where r.Autore = a.ID and (a.DataMorte is null)
 select r.*
 from romanzo r, autore a
 where r.Autore = a.ID and (a.DataMorte is null or a.LuogoMorte != 'Torino')
+
+/*Titolo"e"anno"di"pubblicazione"dei"romanzi"di"scrittori"nati"a"Roma*/
+
+select r.Titolo, r.AnnoPubblicazione
+from romanzo r, autore a
+where r.Autore = a.ID and (a.LuogoNascita = 'Roma')
+
