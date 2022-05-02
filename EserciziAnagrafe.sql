@@ -10,4 +10,8 @@ from persona pf join genia on pf.Nome = genia.Figlio
     join persona pg on pg.Nome = genia.Genitore
 where pf.CittàNascita = pg.CittàNascita
 
+/*città in cui è nato almeno un genitore di oltre 50 anni*/
 
+select p.CittàNascita
+from genia g join persona p on g.Genitore = p.Nome
+where p.Età > 50
