@@ -19,3 +19,9 @@ order by a.Cognome, r.AnnoPubblicazione
 select r.Titolo, r.AnnoPubblicazione
 from romanzo r, autore a
 where r.Autore = a.ID and (a.DataMorte is null)
+
+/*Romanzi"di"scrittori"viventi,"oppure"morti"ma"non"a"Torino*/
+
+select r.*
+from romanzo r, autore a
+where r.Autore = a.ID and (a.DataMorte is null or a.LuogoMorte != 'Torino')
