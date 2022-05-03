@@ -35,3 +35,19 @@ from programmatore p join autore a on p.Codice = a.Codice
         join programma j on j.Id = a.Id
 where j.Linguaggio = "Python"
 
+/*N.5 Calcolare il codice ed il nome dei programmatori che hanno
+scritto solo programmi Java.*/
+
+
+/*N.6 Per ogni programmatore e per ogni anno calcolare il
+numero di programmi scritti da quel programmatore
+in quell’anno, mostrando codice del programmatore,
+anno e numero di programmi scritti.*/
+
+select p.Codice, j.Anno, count(distinct j.Id) as NumProgrammi
+from  programmatore p join autore a on p.Codice = a.Codice
+    join programma j on j.Id = a.Id
+where j.Anno
+group by p.Codice 
+
+
