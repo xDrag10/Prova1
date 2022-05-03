@@ -38,6 +38,10 @@ where j.Linguaggio = "Python"
 /*N.5 Calcolare il codice ed il nome dei programmatori che hanno
 scritto solo programmi Java.*/
 
+select distinct p.Nome, p.Codice
+from programmatore p join autore a on p.Codice = a.Codice
+    join programma j on j.Linguaggio = "Java"
+where j.Linguaggio != "Python" or j.Linguaggio != "Ruby"
 
 /*N.6 Per ogni programmatore e per ogni anno calcolare il
 numero di programmi scritti da quel programmatore
