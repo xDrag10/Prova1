@@ -1,10 +1,10 @@
 /*N.1 Calcolare il codice dei programmatori che sono stati autori di
 almeno un programma scritto in Java dopo il 2000.*/
 
-select  p.Codice
-from programmatore p join programma j on j.anno > 2000
-where j.Linguaggio = "Java"
-group by p.Codice
+select  a.Codice
+from  autore a join programma j on j.Id = a.Id
+where j.Linguaggio = "Java" and j.Anno > 2000
+group by a.Codice
 
 /*N.2 Calcolare il nome e la categoria dei programmatori
 che sono stati autori di almeno un programma scritto
