@@ -57,7 +57,7 @@ group by p.Codice, j.Anno
 /*N.7 Per ogni linguaggio calcolare quanti sono in media gli
 autori dei programmi scritti in quel linguaggio.*/
 
-select j.Linguaggio, Count(a.Codice) as MediaAutori
+select j.Linguaggio, Count(a.Codice)/count(distinct programma.Id) as MediaAutori
 from programma j join autore a on j.Id = a.Id 
 group by j.Linguaggio
 
