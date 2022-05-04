@@ -40,8 +40,8 @@ scritto solo programmi Java.*/
 
 select distinct p.Nome, p.Codice
 from programmatore p join autore a on p.Codice = a.Codice
-    join programma j on j.Linguaggio = "Java"
-where j.Linguaggio != "Python" or j.Linguaggio != "Ruby"
+    join programma j on j.Id = a.Id
+where j.Linguaggio = "Java"
 
 /*N.6 Per ogni programmatore e per ogni anno calcolare il
 numero di programmi scritti da quel programmatore
@@ -52,7 +52,7 @@ select p.Codice, j.Anno, count(distinct j.Id) as NumProgrammi
 from  programmatore p join autore a on p.Codice = a.Codice
     join programma j on j.Id = a.Id
 where j.Anno
-group by p.Codice 
+group by p.Codice, j.Anno 
 
 /*N.7 Per ogni linguaggio calcolare quanti sono in media gli
 autori dei programmi scritti in quel linguaggio.*/
