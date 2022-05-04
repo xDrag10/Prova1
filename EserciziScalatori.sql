@@ -35,5 +35,16 @@ from nazione n join scalata t on n.Nome = t.Nazione
 where n.Nome = s.nazioneNascita
 group by n.Nome
 
+/*N.6 Calcolare codice fiscale, nazione di nascita, continente di
+nascita di ogni scalatore nato in un continente diverso
+dall’America, e, solo se egli ha effettuato almeno una scalata,
+affiancare queste informazioni alle nazioni in cui ha effettuato
+scalate.*/
+
+select s.CF, s.nazioneNascita, n1.Continente, t.nazione
+from nazione n join scalata t on n.Nome = t.Nazione
+    join scalatore s on s.CF = t.Scalatore
+        join nazione n1 on n1.Nome = s.nazioneNascita
+where n1.continente != "America" and s.CF =t.scalatore
 
 
