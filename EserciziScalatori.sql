@@ -54,6 +54,11 @@ stesso continente devono essere mostrati in tuple contigue, e
 le tuple relative allo stesso continente devono essere ordinate
 per anno.*/
 
+select t.Nazione, t.anno, count(*) as NumScalate
+from nazione n join scalata t on n.Nome = t.Nazione
+    join scalatore s on s.CF = t.Scalatore
+group by t.Nazione, t.anno having NumScalate > 1
+order by t.anno
 
 
 
