@@ -41,10 +41,19 @@ dall’America, e, solo se egli ha effettuato almeno una scalata,
 affiancare queste informazioni alle nazioni in cui ha effettuato
 scalate.*/
 
-select s.CF, s.nazioneNascita, n1.Continente, t.nazione
-from nazione n join scalata t on n.Nome = t.Nazione
-    join scalatore s on s.CF = t.Scalatore
-        join nazione n1 on n1.Nome = s.nazioneNascita
-where n1.continente != "America" and s.CF =t.scalatore
+select s.CF, s.nazioneNascita, n.Continente, t.nazione
+from nazione n left join scalatore s on n.Nome = s.nazioneNascita
+    join scalata t on s.CF = t.Scalatore
+        
+where n.continente != "America" and s.CF =t.scalatore
+
+/*N.7 Per ogni nazione e per ogni anno, calcolare il numero di
+scalate effettuate in quella nazione e in quell’anno, ma solo se
+tale numero è maggiore di 1. Nel risultato le nazioni dello
+stesso continente devono essere mostrati in tuple contigue, e
+le tuple relative allo stesso continente devono essere ordinate
+per anno.*/
+
+
 
 
