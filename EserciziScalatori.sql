@@ -6,7 +6,7 @@ select s.CF, n.Continente
 from scalatore s join scalata t on s.CF = t.Scalatore
     join nazione n on n.Nome = t.Nazione
 
-/*Per ogni scalatore nato prima del 1980, calcolare
+/*N.2 Per ogni scalatore nato prima del 1980, calcolare
 tutti i continenti in cui ha effettuato una scalata,
 ordinando il risultato per codice fiscale e, a parità di
 codice fiscale, per il nome del continente.*/
@@ -16,3 +16,12 @@ from scalatore s join scalata t on s.Cf = t.Scalatore
     join nazione n on n.Nome = t.nazione
 where s.annoNascita < 1980
 order by s.CF, n.continente
+
+/*N.3 Calcolare le nazioni (mostrando, per ciascuna, anche il
+continente) nelle quali è stata effettuata almeno una scalata
+da uno scalatore minorenne.*/
+
+select n.nome, n.Continente
+from nazione n join scalata t on n.Nome = t.Nazione
+    join scalatore s on s.CF = t.Scalatore
+where (t.anno - s.annoNascita) < 18
