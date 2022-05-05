@@ -82,11 +82,19 @@ scalate effettuate all’anno in N da scalatori nati in
 nazioni diverse da N.*/
 
 select n.Nome, t.anno, count(*)/count(t.anno) as NumScalate 
-from naznioe n join scalata t on n.Nome = t.Nazione
+from nazione n join scalata t on n.Nome = t.Nazione
     join scalatore s on s.CF = t.Scalatore
 where s.nazioneNascita != n.Nome
 group by n.Nome, t.anno
 order by t.anno
+
+/*N.9 Calcolare gli scalatori tali che tutte le scalate che
+hanno effettuato nella nazione di nascita le hanno
+effettuate quando erano minorenni.*/
+
+select s.CF, s.nazioneNascita
+from scalatore s join scalata t on s.CF = t.Scalatore
+where t.nazione = s.nazioneNascita and (t.anno - s.annoNascita) < 18
 
 
 
