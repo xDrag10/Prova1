@@ -92,9 +92,12 @@ order by t.anno
 hanno effettuato nella nazione di nascita le hanno
 effettuate quando erano minorenni.*/
 
-select s.CF, s.nazioneNascita
+select distinct s.CF, s.nazioneNascita
 from scalatore s join scalata t on s.CF = t.Scalatore
-where t.nazione = s.nazioneNascita and (t.anno - s.annoNascita) < 18
+where s.nazioneNascita 
+    in (select t.Nazione
+    from scalata t
+    where (t.anno - s.annoNascita) < 18)
 
 
 
